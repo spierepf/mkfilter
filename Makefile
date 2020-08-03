@@ -1,4 +1,4 @@
-PROGRAMS=mkfilter mkshape mkaverage gencode #genplot
+PROGRAMS=mkfilter mkshape mkaverage gencode genclass #genplot
 
 all: $(PROGRAMS)
 
@@ -17,6 +17,9 @@ mkaverage: $(OBJDIR)/mkaverage.o $(OBJDIR)/complex.o
 	g++ $(LDFLAGS) $+ -o $@ -lm
 
 gencode: $(OBJDIR)/gencode.o $(OBJDIR)/complex.o $(OBJDIR)/readdata.o
+	g++ $(LDFLAGS) $+ -o $@ -lm
+
+genclass: $(OBJDIR)/genclass.o $(OBJDIR)/complex.o $(OBJDIR)/readdata.o
 	g++ $(LDFLAGS) $+ -o $@ -lm
 
 genplot: $(OBJDIR)/genplot.o $(OBJDIR)/complex.o $(OBJDIR)/readdata.o
